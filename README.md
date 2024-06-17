@@ -1,8 +1,9 @@
-# React + Vite
+# A Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://portfolio-1mlrjbtnr-teddylds-projects.vercel.app/
 
-Currently, two official plugins are available:
+### TODO:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add some of my projects to the Projects section
+- Implement dark/light mode based on system preferences, toggleable with a button
+- Convert the images in the Project modals to video media

@@ -9,3 +9,36 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .text-vertical {
+    writing-mode: vertical-lr;
+  }
+
+  .highlight-nearby:hover + .highlight-nearby {
+    font-weight: 500;
+    color: #c7d2fe;
+  }
+
+  .highlight-nearby:hover + .highlight-nearby + .highlight-nearby {
+    font-weight: 300;
+  }
+
+  .highlight-nearby:has(+ .highlight-nearby:hover) {
+    font-weight: 500;
+    color: #c7d2fe;
+  }
+
+  .highlight-nearby:has(+ .highlight-nearby + .highlight-nearby:hover) {
+    font-weight: 300;
+  }
+}
