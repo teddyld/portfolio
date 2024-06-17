@@ -6,6 +6,7 @@ import PortfolioImage from "../../assets/portfolio.png";
 import OcclusionImage from "../../assets/occlusion.jpg";
 import Line from "../Line";
 import { motion } from "framer-motion";
+import { FaChevronRight } from "react-icons/fa";
 
 export default function Project({ project }) {
   const parseProjectImage = (image) => {
@@ -27,7 +28,7 @@ export default function Project({ project }) {
     <>
       <div className="flex flex-col gap-2">
         <div
-          className="group relative mb-2 aspect-video w-full cursor-pointer overflow-hidden rounded-2xl bg-zinc-700"
+          className="bg-card group relative mb-2 aspect-video w-full cursor-pointer overflow-hidden rounded-2xl"
           onClick={handleOpen}
         >
           <motion.img
@@ -48,10 +49,18 @@ export default function Project({ project }) {
             )}
           </span>
         </div>
-        <div className="text-indigo-300">
+        <div className="text-secondary">
           {project["project-tools"].join(" - ")}
         </div>
-        <p>{project["project-description"]}</p>
+        <p>
+          {project["project-description"]}{" "}
+          <span
+            className="text-secondary flex w-fit cursor-pointer flex-nowrap items-center gap-1"
+            onClick={handleOpen}
+          >
+            Learn more <FaChevronRight className="text-xs" />
+          </span>
+        </p>
       </div>
       <ProjectModal project={project} open={open} handleClose={handleClose} />
     </>

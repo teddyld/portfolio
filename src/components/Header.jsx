@@ -4,8 +4,12 @@ import Links from "./Links";
 export default function Header() {
   const btnRef = React.useRef(null);
   const spanRef = React.useRef(null);
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
 
   React.useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setIsDarkMode(true);
+    }
     const handleMouseMove = (e) => {
       const { width, height } = e.target.getBoundingClientRect();
       const offsetX = e.offsetX;
@@ -14,14 +18,14 @@ export default function Header() {
       const top = `${(offsetY / height) * 100}%`;
 
       spanRef.current.animate(
-        { left, top, backgroundColor: "#f1f5f9" },
+        { left, top, opacity: "100%" },
         { duration: 250, fill: "forwards" },
       );
     };
 
     const handleMouseLeave = () => {
       spanRef.current.animate(
-        { backgroundColor: "#171717" },
+        { opacity: 0 },
         { duration: 100, fill: "forwards" },
       );
     };
@@ -36,18 +40,18 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 flex h-16 items-center justify-between bg-transparent px-4 text-white backdrop-blur-md">
+    <header className="text-content sticky top-0 z-50 flex h-16 items-center justify-between bg-transparent px-4 backdrop-blur-md">
       <Links />
       <button
         ref={btnRef}
-        className="relative overflow-hidden rounded-md border-2 px-4 py-2 text-sm font-medium"
+        className={`border-content group relative overflow-hidden rounded-md border-2 px-4 py-2 text-sm font-medium transition-all ${!isDarkMode && "hover:scale-[110%]"}`}
       >
         <span className="pointer-events-none relative z-10 mix-blend-difference">
           My Resume
         </span>
         <span
           ref={spanRef}
-          className="pointer-events-none absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full"
+          className={`pointer-events-none absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white ${!isDarkMode && "hidden"}`}
         ></span>
       </button>
     </header>

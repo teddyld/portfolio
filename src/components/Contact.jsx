@@ -9,20 +9,31 @@ import { Stars } from "@react-three/drei";
 import React from "react";
 
 export default function Contact({ contactRef }) {
-  const COLORS = ["#a5b4fc", "#a78bfa", "#8b5cf6", "#7c3aed", "#6d28d9"];
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
+  const [COLORS, setCOLORS] = React.useState([
+    "#fda4af",
+    "#fb7185",
+    "#f43f5e",
+    "#e11d48",
+    "#be123c",
+  ]);
   const color = useMotionValue(COLORS[0]);
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #171717 50%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, ${isDarkMode ? "#171717" : "#fafafa"} 50%, ${color})`;
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
   React.useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setIsDarkMode(true);
+      setCOLORS(["#a5b4fc", "#818cf8", "#6366f1", "#4f46e5", "#4338ca"]);
+    }
     animate(color, COLORS, {
       ease: "easeInOut",
       duration: 10,
       repeat: Infinity,
       repeatType: "mirror",
     });
-  }, []);
+  }, [isDarkMode]);
 
   return (
     <motion.section
@@ -34,13 +45,13 @@ export default function Contact({ contactRef }) {
     >
       <div className="relative z-10 flex flex-col items-center gap-8">
         <h1 className="text-4xl font-bold">
-          Contact<span className="text-indigo-500">.</span>
+          Contact<span className="text-primary">.</span>
         </h1>
 
         <p className="text-lg">
           Send me an email or check me out on{" "}
           <a
-            className="text-indigo-300 hover:underline"
+            className="text-secondary hover:underline"
             href="https://www.linkedin.com/in/vincentpham2/"
             target="_blank"
           >
@@ -52,7 +63,7 @@ export default function Contact({ contactRef }) {
             boxShadow,
             border,
           }}
-          className="flex items-center gap-2 rounded-full bg-neutral-900 px-4 py-2 text-lg transition-colors hover:cursor-pointer hover:bg-neutral-950 hover:text-indigo-300"
+          className="hover:text-secondary bg-background hover:bg-background-dark flex items-center gap-2 rounded-full px-4 py-2 text-lg transition-colors hover:cursor-pointer"
           href="mailto:vincent.pham2@outlook.com"
         >
           <svg

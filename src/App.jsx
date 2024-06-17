@@ -15,6 +15,10 @@ function App() {
   const scrollToTopRef = React.useRef(null);
 
   React.useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.body.classList.add("dark");
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 200) {
         scrollToTopRef.current.style.display = "block";
@@ -33,7 +37,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen w-full bg-neutral-900 text-white">
+    <div className="text-content bg-background relative min-h-screen w-full">
       <div className="grid grid-cols-[54px_1fr]">
         <Sidebar
           aboutRef={aboutRef}
@@ -52,7 +56,7 @@ function App() {
       </div>
       <button
         ref={scrollToTopRef}
-        className="fixed bottom-8 right-10 hidden rounded-full border-2 border-white bg-transparent p-2 backdrop-blur-sm transition-colors hover:bg-indigo-300"
+        className="hover:bg-secondary border-content fixed bottom-8 right-10 hidden rounded-full border-2 bg-transparent p-2 backdrop-blur-sm transition-colors"
         onClick={handleScrollToTop}
       >
         <FaArrowUp />

@@ -3,7 +3,7 @@ import React from "react";
 export default function LinkedIn() {
   return (
     <a
-      className="hover:text-indigo-300 transition-colors"
+      className="hover:text-secondary transition-colors"
       href="https://www.linkedin.com/in/vincentpham2/"
       target="_blank"
     >

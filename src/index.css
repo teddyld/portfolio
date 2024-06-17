@@ -8,6 +8,28 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --background: 250, 250, 250;
+  --background-dark: 244, 244, 245;
+  --content: 9, 9, 11;
+  --secondary: 244, 63, 94;
+  --primary: 190, 18, 60;
+  --primary-dark: 159, 18, 57;
+  --card: 228, 228, 231;
+  --line: 82, 82, 91;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 23, 23, 23;
+    --background-dark: 10, 10, 10;
+    --content: 255, 255, 255;
+    --secondary: 165, 180, 252;
+    --primary: 99, 102, 241;
+    --primary-dark: 67, 56, 202;
+    --card: 63, 63, 70;
+    --line: 82, 82, 91;
+  }
 }
 
 @layer utilities {
@@ -26,7 +48,7 @@
 
   .highlight-nearby:hover + .highlight-nearby {
     font-weight: 500;
-    color: #c7d2fe;
+    color: var(--primary);
   }
 
   .highlight-nearby:hover + .highlight-nearby + .highlight-nearby {
@@ -35,7 +57,7 @@
 
   .highlight-nearby:has(+ .highlight-nearby:hover) {
     font-weight: 500;
-    color: #c7d2fe;
+    color: var(--primary);
   }
 
   .highlight-nearby:has(+ .highlight-nearby + .highlight-nearby:hover) {

@@ -39,7 +39,7 @@ export default function ProjectModal({ project, open, handleClose }) {
             transition={{
               duration: 0.2,
             }}
-            className="h-fit w-full max-w-2xl cursor-auto rounded-lg bg-neutral-950"
+            className="bg-background-dark h-fit w-full max-w-2xl cursor-auto rounded-lg"
             onClick={(e) => e.stopPropagation()}
           >
             <img
@@ -51,7 +51,7 @@ export default function ProjectModal({ project, open, handleClose }) {
                 <h1 className="text-3xl font-bold">
                   {project["project-name"]}
                 </h1>
-                <div className="text-indigo-300">
+                <div className="text-secondary">
                   {project["project-tools"].join(" - ")}
                 </div>
               </span>
@@ -59,7 +59,7 @@ export default function ProjectModal({ project, open, handleClose }) {
                 <p key={`paragraph-${i}`}>{paragraph}</p>
               ))}
               <h2 className="mt-2 text-xl font-medium">
-                Project Links<span className="text-indigo-300">.</span>
+                Project Links<span className="text-secondary">.</span>
               </h2>
               <div className="flex flex-wrap items-center gap-4">
                 <GitHub to={project["project-link"]} display={true} />

@@ -41,7 +41,7 @@ export default function Projects({ projectsRef }) {
       <div className="mb-10 flex items-center gap-4">
         <Line />
         <h1 className="text-4xl font-bold">
-          Projects<span className="text-indigo-500">.</span>
+          Projects<span className="text-primary">.</span>
         </h1>
       </div>
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2">

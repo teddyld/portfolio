@@ -6,7 +6,7 @@ export default function GitHub({
 }) {
   return (
     <a
-      className="flex items-center gap-1 transition-colors hover:text-indigo-300"
+      className="hover:text-secondary flex items-center gap-1 transition-colors"
       href={to}
       target="_blank"
     >
