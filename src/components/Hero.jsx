@@ -45,30 +45,31 @@ export default function Hero({ contactRef }) {
     <section className="flex flex-col gap-4 pt-32">
       <Reveal>
         <div className="flex">
-          <h1 className="text-secondary text-4xl font-thin tracking-wide md:text-8xl">
-            {"Hey, I'm Vincent".split("").map((child, i) => (
-              <span
-                className="highlight-nearby hover:text-content transition-all duration-75 hover:font-bold"
-                key={i}
-              >
-                {child}
-              </span>
-            ))}
+          <h1 className="text-4xl font-thin tracking-wide md:text-8xl">
+            Hey, I'm Vincent
             <span className="text-primary">.</span>
           </h1>
         </div>
       </Reveal>
       <h2 className="h-20 text-2xl sm:h-fit">
         I'm
-        <span className="text-primary ml-2 font-bold">{currPhrase}</span>
-        <span className="text-secondary animate-blink">|</span>
+        <span className="ml-2 font-bold text-primary">{currPhrase}</span>
+        <span className="animate-blink text-secondary">|</span>
       </h2>
       <p>
-        I'm all about AI and Frontend Development 😎 <br />I like gaming and
-        going to the gym 🎮
+        I'm all about
+        {" AI and Frontend Development ".split("").map((child, i) => (
+          <span
+            className="highlight-nearby transition-all duration-75 hover:font-bold hover:text-content"
+            key={i}
+          >
+            {child}
+          </span>
+        ))}
+        😎 <br />I like gaming and going to the gym 🎮
       </p>
       <button
-        className="bg-primary w-fit rounded px-6 py-2 font-medium shadow-[3px_3px_0px_black] transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none"
+        className="w-fit rounded bg-primary px-6 py-2 font-medium shadow-[3px_3px_0px_black] transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none"
         onClick={handleScroll}
       >
         Contact me

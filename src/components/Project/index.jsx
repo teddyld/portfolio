@@ -28,7 +28,7 @@ export default function Project({ project }) {
     <>
       <div className="flex flex-col gap-2">
         <div
-          className="bg-card group relative mb-2 aspect-video w-full cursor-pointer overflow-hidden rounded-2xl"
+          className="group relative mb-2 aspect-video w-full cursor-pointer overflow-hidden rounded-2xl bg-card"
           onClick={handleOpen}
         >
           <motion.img
@@ -37,11 +37,10 @@ export default function Project({ project }) {
             className="hover: absolute top-1/4 aspect-video scale-90 transition-all group-hover:rotate-2 group-hover:scale-95"
           />
         </div>
-        <div className="flex items-center gap-2">
-          <h2 className="text-center text-lg font-bold">
+        <div className="flex items-center justify-between gap-2">
+          <h2 className="text-center text-xl font-bold">
             {project["project-name"]}
           </h2>
-          <Line />
           <span className="flex gap-2 text-lg">
             <GitHub to={project["project-link"]} />
             {project["project-external"] && (
@@ -55,7 +54,7 @@ export default function Project({ project }) {
         <p>
           {project["project-description"]}{" "}
           <span
-            className="text-secondary flex w-fit cursor-pointer flex-nowrap items-center gap-1"
+            className="flex w-fit cursor-pointer flex-nowrap items-center gap-1 text-secondary"
             onClick={handleOpen}
           >
             Learn more <FaChevronRight className="text-xs" />
