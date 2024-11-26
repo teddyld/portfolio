@@ -40,15 +40,21 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="text-content sticky top-0 z-50 flex h-16 items-center justify-between bg-transparent px-4 backdrop-blur-md">
+    <header className="sticky top-0 z-50 flex h-16 items-center justify-between bg-transparent px-4 text-content backdrop-blur-md">
       <Links />
       <button
         ref={btnRef}
-        className={`border-content group relative overflow-hidden rounded-md border-2 px-4 py-2 text-sm font-medium transition-all ${!isDarkMode && "hover:scale-[110%]"}`}
+        onClick={() =>
+          window.open(
+            "https://github.com/teddyld/resume/blob/main/vincentResume.pdf",
+            "_blank",
+          )
+        }
+        className={`group relative overflow-hidden rounded-md border-2 border-content px-4 py-2 text-sm font-medium transition-all ${!isDarkMode && "hover:scale-[110%]"}`}
       >
-        <span className="pointer-events-none relative z-10 mix-blend-difference">
+        <a className="pointer-events-none relative z-10 mix-blend-difference">
           My Resume
-        </span>
+        </a>
         <span
           ref={spanRef}
           className={`pointer-events-none absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white ${!isDarkMode && "hidden"}`}

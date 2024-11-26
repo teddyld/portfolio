@@ -5,21 +5,29 @@ import HoverOutline from "./HoverOutline";
 import { FaArrowRight } from "react-icons/fa";
 
 export default function About({ aboutRef }) {
-  const currTools = [
+  const skills = [
+    "Python",
+    "C",
+    "C++",
+    "Java",
+    "Node.js",
+    "Express.js",
+    "Flask",
+    "PyTorch",
+    "PostgreSQL",
+    "JavaScript",
+    "TypeScript",
     "HTML",
     "CSS",
-    "Javascript",
-    "React",
-    "Tailwind CSS",
-    "MUI",
-    "ChakraUI",
-    "NodeJS",
-    "Express",
-    "Python",
-    "PyTorch",
+    "React.js",
+    "Axios",
+    "Zustand",
+    "OAuth 2.0",
     "Git",
+    "Agile",
+    "VHDL",
+    "MIPs Assembly",
   ];
-  const prevTools = ["C", "MIPS Assembly", "Java", "VHDL"];
   return (
     <section ref={aboutRef}>
       <div className="mb-10 flex items-center gap-4">
@@ -31,17 +39,16 @@ export default function About({ aboutRef }) {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_300px]">
         <div className="space-y-2">
           <p>
-            Yo, I'm Vincent. I'm studying Computer Engineering at UNSW.
-            Sometimes I leave my PC to touch grass. I'm passionate about AI
-            (somebody's gotta create those AI catgirls) and Frontend
-            Development.
+            Hey, I'm Vincent. I'm studying Computer Engineering at UNSW.
+            Sometimes I leave my PC to touch grass. I'm passionate about AI and
+            Frontend Development.
           </p>
           <p>
             Casually self-learning the piano and reading Vagabond for the nth
             time.
           </p>
           <div className="flex items-center gap-4">
-            <div className="text-secondary flex items-center gap-2">
+            <div className="flex items-center gap-2 text-secondary">
               <span>Find me here</span>
               <FaArrowRight />
             </div>
@@ -49,16 +56,10 @@ export default function About({ aboutRef }) {
           </div>
         </div>
         <div className="space-y-4">
-          <h2 className="font-bold">Things I use often</h2>
+          <h2 className="font-bold">Skills</h2>
           <div className="flex flex-wrap gap-2">
-            {currTools.map((tool, i) => (
+            {skills.map((tool, i) => (
               <HoverOutline key={`tools-${i}`}>{tool}</HoverOutline>
-            ))}
-          </div>
-          <h2 className="font-bold">Things I used before</h2>
-          <div className="flex flex-wrap gap-2">
-            {prevTools.map((tool) => (
-              <HoverOutline key={`tools-${tool}`}>{tool}</HoverOutline>
             ))}
           </div>
         </div>
